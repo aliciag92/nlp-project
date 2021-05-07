@@ -24,6 +24,9 @@ For this project, I will be scraping data from GitHub repository README files in
 ### Initial hypotheses
 - What are the most frequently occuring words in READMEs?
 - Are there any words that uniquely identify a programming language?
+- What does the distribution of IDFs look like for the most common words?
+- Does the length of the README vary by programming language?
+- Do different programming languages use a different number of unique words?
 - What are the top word combinations (bigrams and trigrams)?
 
 ****

@@ -135,10 +135,11 @@ def clean_content(df, column, extra_words=[], exclude_words=[]):
     This function takes in a pandas DataFrame, 
     the string name for a text column, 
     with option to pass lists for extra words and exclude words as arguments,
-    drops nulls, 
-    adjusts 'jupyter notebook' values to be 'python' language,
+    drops the nulls in the df, 
+    adjusts 'jupyter notebook' values to be added to the 'python' language,
+    removes languages with less than 5 value counts,
 
-    and returns a df with the repo, language, and readme_contents 
+    and returns a df with the GitHub repo, programming language, and the readme_contents 
     cleaned, tokenized, and lemmatized text with stopwords removed.
     '''
 
@@ -155,6 +156,9 @@ def clean_content(df, column, extra_words=[], exclude_words=[]):
 
     #replace jupyter notebook w/ python
     df.language = df.language.replace('Jupyter Notebook', 'Python')
+
+    #remove languages with 5 or less value_counts
+    df = df.groupby('language').filter(lambda x : len(x) >= 5)
 
     return df[['repo', 'clean_content', column, 'language']]
 

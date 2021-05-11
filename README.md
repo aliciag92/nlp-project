@@ -66,9 +66,19 @@ language | Programming language used in README files of GitHub repositories | ob
 - Summarize performance, interpret, and document results.
 
 #### 5. Deliver
-- (*document results of classification report*)
+- The best performing model uses a Decision Tree algorithm and TF-IDF to vectorize the text.
+- The model increased from a baseline accuracy of 38% to 50% accuracy on out-of-sample data.
+- The models are overfit as they performed well on training data initially. However, the models' accuracies significantly decreased when testing on validate (out-of-sample) data.
+- Additionally, the models do not do a good job in predicting programming languages like HTML, PHP, and TypeScript. However, the final Decision Tree model does do a good job in predicting if the text from a GitHub repository's README file is either Python or JavaScript.
+- It is also evident that README files for Python are better predictors than for JavaScript.
 - Summarization of findings can be found here in my [report summary](link to google slides). 
 
+****
+### Next Steps
+- Gather higher quantity of READMEs from GitHub repositories.
+- Create new features by implementing feature engineering.
+- Run statistical testing.
+- Conduct more modeling.
 
 ****
 

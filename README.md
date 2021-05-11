@@ -71,7 +71,7 @@ language | Programming language used in README files of GitHub repositories | ob
 - The models are overfit as they performed well on training data initially. However, the models' accuracies significantly decreased when testing on validate (out-of-sample) data.
 - Additionally, the models do not do a good job in predicting programming languages like HTML, PHP, and TypeScript. However, the final Decision Tree model does do a good job in predicting if the text from a GitHub repository's README file is either Python or JavaScript.
 - It is also evident that README files for Python are better predictors than for JavaScript.
-- Summarization of findings can be found here in my [report summary](https://docs.google.com/presentation/d/1j3zTydqPnEYJ2_No2I4rslAjM_WKgqBbzRsuY3LZ3yM/edit?usp=sharing. 
+- Summarization of findings can be found here in my [report summary](https://docs.google.com/presentation/d/1j3zTydqPnEYJ2_No2I4rslAjM_WKgqBbzRsuY3LZ3yM/edit?usp=sharing). 
 
 ****
 ### Next Steps

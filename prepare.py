@@ -11,6 +11,8 @@ import pandas as pd
 import warnings
 warnings.filterwarnings("ignore")
 
+from sklearn.model_selection import train_test_split
+
 import acquire
 
 
@@ -33,8 +35,8 @@ def basic_clean(string):
     #normalize unicode chars
     string = unicodedata.normalize('NFKD', string).encode('ascii', 'ignore').decode('utf-8', 'ignore')
     
-    #replace anything not a letter, number, whitespace, or single quote
-    string = re.sub(r"[^a-z0-9'\s]", '', string)
+    #replace anything not a letter, number, whitespace
+    string = re.sub(r'[^a-z0-9\s]', '', string)
     
     return string
 
@@ -54,27 +56,6 @@ def tokenize(string):
     string = tokenizer.tokenize(string, return_str=True)
     
     return string
-
-
-
-def stem(string):
-    '''
-    This function takes in some text
-    
-    and returns the text after applying stemming to all the words.
-    '''
-    
-    #create porter stemmer.
-    ps = nltk.porter.PorterStemmer()
-    
-    #apply the stemmer to each word in the string
-    stems = [ps.stem(word) for word in string.split()]
-    
-    #join stemmed list of words into a string again
-    string_stemmed = ' '.join(stems)
-    
-    return string_stemmed
-
 
 
 def lemmatize(string):
@@ -137,7 +118,7 @@ def clean_content(df, column, extra_words=[], exclude_words=[]):
     with option to pass lists for extra words and exclude words as arguments,
     drops the nulls in the df, 
     adjusts 'jupyter notebook' values to be added to the 'python' language,
-    removes languages with less than 5 value counts,
+    removes languages with less than 9 value counts,
 
     and returns a df with the GitHub repo, programming language, and the readme_contents 
     cleaned, tokenized, and lemmatized text with stopwords removed.
@@ -157,8 +138,8 @@ def clean_content(df, column, extra_words=[], exclude_words=[]):
     #replace jupyter notebook w/ python
     df.language = df.language.replace('Jupyter Notebook', 'Python')
 
-    #remove languages with 5 or less value_counts
-    df = df.groupby('language').filter(lambda x : len(x) >= 5)
+    #remove languages with 9 or less value_counts
+    df = df.groupby('language').filter(lambda x : len(x) >= 9)
 
     return df[['repo', 'clean_content', column, 'language']]
 
@@ -166,10 +147,10 @@ def clean_content(df, column, extra_words=[], exclude_words=[]):
 ########################### Split Function ############################
 
 def split(df, stratify_by=None):
-    """
+    '''
     Crude train, validate, test split
     To stratify, send in a column name
-    """
+    '''
     
     if stratify_by == None:
         train, test = train_test_split(df, test_size=.2, random_state=123)

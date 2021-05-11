@@ -1,5 +1,5 @@
 # Prediction of Home Values 
-![programming](link to programming language header image)
+![programming](https://online.csp.edu/wp-content/uploads/2019/02/Programming-Languages-for-Beginners-CSP.png)
 ****
 
 ## About the Project
@@ -24,9 +24,6 @@ For this project, I will be scraping data from GitHub repository README files in
 ### Initial hypotheses
 - What are the most frequently occuring words in READMEs?
 - Are there any words that uniquely identify a programming language?
-- What does the distribution of IDFs look like for the most common words?
-- Does the length of the README vary by programming language?
-- Do different programming languages use a different number of unique words?
 - What are the top word combinations (bigrams and trigrams)?
 
 ****
@@ -35,14 +32,9 @@ For this project, I will be scraping data from GitHub repository README files in
 
 Feature      | Description   | Data Type
 ------------ | ------------- | ------------
-x |  x  | x 
-x | x | x
-x |  x  | x 
-x |  x | x
-x |  x  | x
-x | x | x
-x | x | x
-x | x | x
+repo | GitHub repositories' url | object 
+clean_content | Cleaned text from README files of GitHub repositories | object
+language | Programming language used in README files of GitHub repositories | object 
 
 ****
 
@@ -55,16 +47,16 @@ x | x | x
 
 #### 1. Acquire
 - Scrape the README files from Github repositories.
-- Functions to acquire the data are included in [acquire.py](link to acquire file).
+- Functions to acquire the data are included in [acquire.py](https://github.com/aliciag92/nlp-project/blob/main/acquire.py).
 
 #### 2. Prepare
 - Normalize text, clean, tokenize, lemmatize and remove stopwords.
 - Split the data into train, validate, test.
-- Functions to prepare the data are included in [prepare.py](link to prepare file).
+- Functions to prepare the data are included in [prepare.py](https://github.com/aliciag92/nlp-project/blob/main/prepare.py).
 
 #### 3. Explore
 - Address questions posed in planning and brainstorming and figure out drivers to predict home values.
-- Create visualizations and run statistical tests (as many as needed).
+- Create visualizations (as many as needed).
 - Summarize key findings and takeaways.
 
 #### 4. Model/Evaluate
@@ -81,5 +73,5 @@ x | x | x
 ****
 
 ### Recreating Project
-- To reproduce this project, download [acquire.py](link to acquire), [prepare.py](link to prepare file), and [repo-language-report.ipynb](link to jupy nb) in your working directory and follow the steps from the pipeline process above.
+- To reproduce this project, download [acquire.py](https://github.com/aliciag92/nlp-project/blob/main/acquire.py), [prepare.py](https://github.com/aliciag92/nlp-project/blob/main/prepare.py), and [repo-language-report.ipynb](https://github.com/aliciag92/nlp-project/blob/main/repo-language-report.ipynb) in your working directory and follow the steps from the pipeline process above.
 - Do any additional exploring, modeling, and evaluating of your own to deliver any new information!

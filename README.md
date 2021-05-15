@@ -55,7 +55,9 @@ language | Programming language used in README files of GitHub repositories | ob
 - Functions to prepare the data are included in [prepare.py](https://github.com/aliciag92/nlp-project/blob/main/prepare.py).
 
 #### 3. Explore
-- Address questions posed in planning and brainstorming and figure out drivers to predict home values.
+- Break up data into each programming language, check frequency of words, and combine frequencies into one df. 
+- Perform any additional cleaning up to reduce noise.
+- Address questions posed in planning and brainstorming.
 - Create visualizations (as many as needed).
 - Summarize key findings and takeaways.
 
